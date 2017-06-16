@@ -40,4 +40,17 @@ class MovieController extends Controller
     	$movie->update();
     	return redirect('movie');
     }
+
+    public function destroy($id)
+    {
+    	$movie = Movie::find($id);
+    	$movie->delete();
+    	return redirect()->back();
+    }
+
+    public function search(Request $request)
+    {
+    	$movies = Movie::where('name', 'like', '%'.$request->name.'%')->get();
+    	return \View::make('list', compact('movies'));
+    }
 }

@@ -28,7 +28,7 @@
                     <td>{{ $movie->description }}</td>
                     <td>
                         <a class="btn btn-primary btn-xs" href="{{ URL::action('MovieController@edit', $movie->id)}}" >Edit</a> 
-                        <a class="btn btn-danger btn-xs" href="{{ URL::action('MovieController@destroy', $movie->id)}}" >Delete</a>
+                        <a class="btn btn-danger btn-xs" href="{{ route('movie/destroy',['id' => $movie->id])}}" >Delete</a>
                     </td>
 
                 </tr>
