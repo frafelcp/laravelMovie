@@ -37,7 +37,7 @@ class MovieController extends Controller
     	$movie = Movie::find($request->id);
     	$movie->name = $request->name;
     	$movie->description = $request->description;
-    	$movie->save();
+    	$movie->update();
     	return redirect('movie');
     }
 }
