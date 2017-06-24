@@ -24,6 +24,15 @@ Route::post('movie/search', ['as'=>'movie/search', 'uses'=>'MovieController@sear
 //ruta para editar registros
 #Route::get('movie/edit/{id}', ['as'=>'movie/edit', 'uses'=>'MovieController@edit']);
 
+//rutas para el recurso category
+Route::resource('category', 'CategoryController');
+//ruta para eliminar registros con el metodo get
+Route::get('category/destroy/{id}', ['as'=>'category/destroy', 'uses'=>'CategoryController@destroy']);
+//ruta para realizar busquedas de registros
+Route::post('category/search', ['as'=>'category/search', 'uses'=>'CategoryController@search']);
+//ruta para editar registros
+#Route::get('movie/edit/{id}', ['as'=>'movie/edit', 'uses'=>'MovieController@edit']);
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
