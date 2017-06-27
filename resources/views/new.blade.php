@@ -12,11 +12,20 @@
                       {!! Form::label('email', 'Descripci&oacute;n') !!}
                       {!! Form::text('description', null, ['class' => 'form-control' , 'required' => 'required']) !!}
                   </div>
+									<div class="form-group">
+                      {!! Form::label('category', 'Categoria') !!}
+                      <select name="category_id">
+												@foreach($categoria as $catego)
+													<option value="{{$catego->id}}">{{$catego->name}}</option>
+												@endforeach
+											</select>
+                  </div>
                 <div class="form-group">
                       {!! Form::submit('Enviar', ['class' => 'btn btn-success ' ] ) !!}
                   </div>
             {!! Form::close() !!}
 		</div>
 	</div>
+	{{$categoria}}
 </div>
 @endsection

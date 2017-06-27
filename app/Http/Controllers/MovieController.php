@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Movie as Movie;
+use App\Category as Category;
 
 class MovieController extends Controller
 {
@@ -16,7 +17,8 @@ class MovieController extends Controller
 
     public function create()
     {
-    	return \View::make('new');
+      $categoria = Category::get();
+    	return \View::make('new', compact('categoria'));
     }
 
     public function store(Request $request)
@@ -29,7 +31,8 @@ class MovieController extends Controller
     public function edit($id)
     {
     	$movie = Movie::find($id);
-    	return \View::make('update', compact('movie'));
+      $categorias = Category::get();
+    	return \View::make('update', compact('movie', 'categorias'));
     }
 
     public function update(Request $request)

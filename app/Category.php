@@ -8,6 +8,11 @@ class Category extends Model
 {
   protected $table = 'categories';
   protected $primaryKey = 'id';
-  protected $filliable = ['name', 'description'];
+  protected $fillable = ['name', 'description'];
   protected $guarded = ['id'];
+
+  public function movies()
+  {
+    return $this->hasMany('App\Movie', 'category_id', 'id');
+  }
 }

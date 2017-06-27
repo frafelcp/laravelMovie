@@ -17,7 +17,8 @@
                 <tr>
                   <th>Name</th>
                   <th>Description</th>
-                  <th>Action</th>  
+                  <th>Category</th>
+                  <th>Action</th>
 
                 </tr>
             </thead>
@@ -26,8 +27,9 @@
                 <tr>
                     <td>{{ $movie->name }}</td>
                     <td>{{ $movie->description }}</td>
+                    <td>{{ $movie->category_id }}-{{$movie->category->name}}</td>
                     <td>
-                        <a class="btn btn-primary btn-xs" href="{{ URL::action('MovieController@edit', $movie->id)}}" >Edit</a> 
+                        <a class="btn btn-primary btn-xs" href="{{ URL::action('MovieController@edit', $movie->id)}}" >Edit</a>
                         <a class="btn btn-danger btn-xs" href="{{ route('movie/destroy',['id' => $movie->id])}}" >Delete</a>
                     </td>
 
@@ -35,6 +37,6 @@
                 @endforeach
             </tbody>
         </table>
-	</div>
+        <a href="{{ route('category.index') }}" class="btn btn-primary">Categorias</a>
 </div>
 @endsection
